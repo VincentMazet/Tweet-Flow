@@ -7,19 +7,67 @@
 //
 
 import UIKit
+import Social
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
+
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var picker: UIPickerView!
+    
+    var pickerData = [
+        ["Make m'rica gr8 again","Swift c krô b1","Apple sucks","watermelon"]
+        ,["( ͡° ͜ʖ ͡°)","(⌐■_■)","ᗒ ͟ʖᗕ","^‿^"]]
+    
+    var firstRowData = ""
+    var secondRowData = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        firstRowData = self.pickerData[0][0]
+        secondRowData = self.pickerData[1][0]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData[component].count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            firstRowData = pickerData[0][row]
+            return firstRowData
+        } else if component == 1 {
+            secondRowData = pickerData[1][row]
+            return secondRowData
+        }else {
+            return nil
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true);
+        return true;
     }
 
-
+    @IBAction func btnAction(_ sender: AnyObject) {
+        //get textField Text -> send to twitter
+        var tweet = self.textField.text
+        
+        if tweet == nil || tweet == "" {
+            tweet = firstRowData + " " + secondRowData
+        }
+        
+        if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
+            vc.setInitialText(tweet)
+            present(vc, animated: true)
+        }
+    }
 }
-
