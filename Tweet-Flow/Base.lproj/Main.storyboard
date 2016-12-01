@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmQ-pm-vFb">
-                                <frame key="frameInset" minX="16" minY="474" width="343" height="30"/>
+                                <frame key="frameInset" minX="16" minY="617" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tweet-it !"/>
                                 <connections>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KeZ-aE-pC8">
-                                <frame key="frameInset" minX="16" minY="318" width="343" height="30"/>
+                                <frame key="frameInset" minX="16" minY="542" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -37,27 +37,44 @@
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUR-oe-i4d">
-                                <frame key="frameInset" minY="20" height="216"/>
+                                <frame key="frameInset" minY="125" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hmH-eD-Ltg"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ou" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGA-5C-nUF">
-                                <frame key="frameInset" minX="166" minY="247" width="42" height="21"/>
+                                <frame key="frameInset" minX="166" minY="433" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WD-wM-ybm">
+                                <frame key="frameInset" minX="73" minY="70" width="286" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9nv-HD-u7K">
+                                <frame key="frameInset" minX="16" minY="60" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.3330494447007708" green="1" blue="0.95025236523912615" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeSocialNetwork:" destination="BYZ-38-t0r" eventType="valueChanged" id="xYm-MI-BCl"/>
+                                </connections>
+                            </switch>
                         </subviews>
-                        <color key="backgroundColor" red="0.79079628607572083" green="0.97936957189269191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.33304944469999997" green="1" blue="0.9502523652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="CQR-Ho-PUa" appends="YES" id="TzL-0G-S6I"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="picker" destination="pUR-oe-i4d" id="1QH-Lw-jX8"/>
+                        <outlet property="socialNetwork" destination="7WD-wM-ybm" id="bJ3-mr-ZKZ"/>
+                        <outlet property="socialSwitch" destination="9nv-HD-u7K" id="EQX-De-0Bf"/>
                         <outlet property="textField" destination="KeZ-aE-pC8" id="Doq-KL-FEX"/>
                     </connections>
                 </viewController>

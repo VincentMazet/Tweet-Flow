@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var socialSwitch: UISwitch!
+    @IBOutlet weak var socialNetwork: UILabel!
     
     var pickerData = [
         ["Make m'rica gr8 again","Swift c krô b1","Appeule","watermelon"]
@@ -57,6 +59,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.view.endEditing(true)
         return true
     }
+    @IBAction func changeSocialNetwork(_ sender: UISwitch) {
+        if socialSwitch.isOn {
+            view.backgroundColor = UIColorFromHex(rgbValue: 0x85172238,alpha: 3.0)
+            socialNetwork.text = "Facebook"
+        }else{
+            view.backgroundColor = UIColorFromHex(rgbValue: 0x45989152,alpha: 3.0)
+            socialNetwork.text = "Twitter"
+        }
+    }
     
     @IBAction func closeKeyboard(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -73,5 +84,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             vc.setInitialText(tweet)
             present(vc, animated: true)
         }
+    }
+    
+    func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
 }
