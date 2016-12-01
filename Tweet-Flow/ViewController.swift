@@ -26,6 +26,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         firstRowData = self.pickerData[0][0]
         secondRowData = self.pickerData[1][0]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,12 +54,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true);
-        return true;
+        self.view.endEditing(true)
+        return true
+    }
+    
+    @IBAction func closeKeyboard(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 
     @IBAction func btnAction(_ sender: AnyObject) {
-        //get textField Text -> send to twitter
         var tweet = self.textField.text
         
         if tweet == nil || tweet == "" {
