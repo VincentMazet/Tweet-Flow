@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var picker: UIPickerView!
     
     var pickerData = [
-        ["Make m'rica gr8 again","Swift c krô b1","Apple sucks","watermelon"]
+        ["Make m'rica gr8 again","Swift c krô b1","Appeule","watermelon"]
         ,["( ͡° ͜ʖ ͡°)","(⌐■_■)","ᗒ ͟ʖᗕ","^‿^"]]
     
     var firstRowData = ""
